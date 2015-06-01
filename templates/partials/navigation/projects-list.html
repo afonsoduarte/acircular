@@ -1,0 +1,19 @@
+{% set page = './content/2.projects' %}
+<section class="projects">
+{% for child in page.children %}
+  <article class="{{ child.id }}">
+    <header>
+      <h1>  
+        <a href="{{ child.url }}" title="Read more about {{ child.title }}">{{ child.title }}</a>
+      </h1>
+      {# % include 'partials/assets/briefs.html' with { 'page': child } % #}
+    </header>
+
+    <div class="content">
+      {{ string_slice(child.content, 100) }}...
+      <span class="read-more"><a href="{{ child.url }}" title="Read more about {{ child.title }}">read more</a></span>
+    </div>
+
+  </article>
+{% endfor %}
+</section>

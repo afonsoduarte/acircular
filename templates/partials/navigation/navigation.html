@@ -1,7 +1,8 @@
-<ul id="navigation">
-  {% for child in page.root %}  
-    <li class="{{ child.slug }} {% if child.is_current %}active{% endif %}">
-      <a href="{% if child.title == 'Work' %}/{% else %}{{ child.url }}{% endif %}">{{ child.title }}</a>
-    </li> 
+<ul class="navigation">
+  {% for child in page.root %}
+    <li class="{{ child.slug }}{% if child.is_current %} active{% endif %}{% if child.children %} has-children{% endif %}">
+      <a href="#{{ child.slug }}">{{ child.title }}</a>
+      {% include 'partials/navigation/children.html' with { 'page' : child } %}
+    </li>
   {% endfor %}
 </ul>

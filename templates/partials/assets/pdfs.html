@@ -1,7 +1,7 @@
 {% if page.pdf %}
-  <p>
-    <br><b>PDFS</b><br>
-    {% for pdf in page.pdf %}
-      <p><a href="{{ pdf.url }}">{{ pdf.name }}</a></p>
-    {% endfor %}
+  <ul class="pdf">
+  {% for pdf in page.pdf %}
+    <li><a href="{{ pdf.url }}"><span>{{ pdf.name }}</span></a></li>
+  {% endfor %}
+  </ul>
 {% endif %}

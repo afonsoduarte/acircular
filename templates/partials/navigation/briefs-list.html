@@ -1,0 +1,19 @@
+<section class="projects">
+{% for child in page.children %}
+  <article class="{{ child.id }}">
+    <header class="with-pdf">
+      <h1>  
+        {{ child.title }}
+      </h1>
+      {% include 'partials/assets/briefs.html' with { 'page': child } %}
+    </header>
+
+    <div class="content">{{ child.content }}</div>
+
+    <div class="timetable">
+      {{ child.timetable }}
+    </div>
+
+  </article>
+{% endfor %}
+</section>

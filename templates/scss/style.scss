@@ -1,0 +1,267 @@
+@import "normalize";
+@import "bourbon/bourbon";
+@import "settings";
+@import "neat/neat";
+@import "boilerplate";
+@import "utils";
+
+// VARIABLES
+
+$fontsize: 18px;
+$bigfontsize: 26px;
+$smallfontsize: 12px;
+$baseline: 22px;
+
+// GENERAL STYLES
+
+body {
+  padding: 0 $baseline/2;
+  // min-width: 1190px;
+}
+
+h1,
+h2, 
+h3,
+p {
+  font-size: $fontsize;
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: white;
+}
+
+body, input, textarea {
+  font-family: $body-font-family;
+  line-height: $baseline;
+  font-size: $fontsize;
+  background: black;
+  color: white;
+}
+
+// NAVIGATION
+
+.page-header {
+  @include outer-container;
+  > h1 {
+    display: none;
+  }
+}
+
+nav ul, 
+nav ol {
+  padding: 0;
+  margin: 0;
+}
+
+.navigation {
+  @include span-columns(12 of 12);
+  position: fixed;
+  left: 0;
+  z-index: 999;
+  padding: $baseline $baseline/2;
+
+  background: black;
+  // background: white;
+  // a {
+  //   color: black;
+  // }
+
+  > li {
+    @include span-columns(4 of 12);
+  }
+}
+
+.has-children {
+  > a {
+    display: none;
+  }
+}
+
+
+// CONTENT
+
+.container {
+  @include outer-container;
+}
+
+
+// ISSUES
+section.issues {
+  @include span-columns(12 of 12);
+
+  & > h1 {
+    display: none;
+  }
+}
+
+.issue {
+  @include clearfix;
+  padding-top: 6 * $baseline;
+
+  & > h1 {
+    margin-bottom: $baseline * 2;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      margin-bottom: $baseline;
+    }
+  }
+
+  em {
+    display: block;
+    font-style: normal;
+  }
+
+  .content {
+    @include span-columns(3 of 9);
+  }
+
+  .media {
+    @include span-columns(6 of 9);
+    margin-top: $baseline * 3;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .spec {
+    @include span-columns(3 of 9);
+  }
+
+  .shop {
+    @include span-columns(3 of 9);
+    @include omega();
+
+    form
+    {
+      margin-bottom: .2em;
+    }
+
+    select
+    {
+      border: 2px solid white;
+      font-size: .9em;
+      font-family: $body-font-family;
+      background: black;
+      color: white;
+      display: block;
+      margin: ($baseline/2 + 3px) 0 $baseline/2;
+    }
+
+    input
+    {
+      border: 2px solid white;
+      font-size: 1em;
+      background: black;
+      padding: .2em;
+      margin-top: .38em;
+      color: white;
+    }
+
+    input:hover
+    {
+      background: white;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+// ISSUE 3
+// ROTATING CUBE
+
+$x: 433px;
+$y: 650px;
+$z: 35px;
+
+@include keyframes(circular) {
+  from {
+    @include transform( rotateX(0deg) rotateY(0deg) );
+  }
+  to {
+    @include transform( rotateX(0deg) rotateY(360deg) );
+  }  
+  50% {
+    @include transform( rotateX(0deg) rotateY(180deg) );
+  }
+}
+
+.csstransforms3d {
+
+  #a-circular-3 {
+    perspective         : 2000px;
+    perspective-origin          : 50% 50%;
+
+    .media {
+      animation         : circular 10s infinite linear;
+      width: $x;
+      position: relative;
+      @include transition(transform 2s linear);
+      transform-style         : preserve-3d;
+
+      &>div {
+        position: absolute;
+        height: $y;
+        width: $x;
+        padding: 0px;
+        background: #FEFFEF;
+      }
+
+
+      & div:nth-child(1) {
+        @include transform (translateZ($z/2));
+      }
+
+      & div:nth-child(2) {
+        @include transform (rotateY(-90deg) translateZ($z/2));
+        width: $z;
+      }
+
+      & div:nth-child(3) {
+        @include transform (rotateY(180deg) translateZ($z/2));
+      }
+
+      & div:nth-child(4){
+        @include transform (rotateY(-90deg) translateZ(- $x + ($z/2)));
+        width: $z;
+        background: url(/public/pages.png) repeat top left;
+      }
+
+      & div:nth-child(5) {
+        @include transform (rotateX(-90deg) translateZ($y - ($z/2)) rotate(180deg));
+        height: $z;
+        background: url(/public/pages.png) repeat top left;
+      }
+
+      & div:nth-child(6) {
+        @include transform (rotateX(90deg) translateZ($z/2));
+        height: $z;
+        background: url(/public/pages.png) repeat top left;
+      }
+    }
+  }
+}
+
+section {
+  min-height: 100vh;
+  & > h1 {
+    margin: 0 0 $baseline;
+  }
+}
+
+
+
+#contact {
+  @include span-columns(12 of 12);
+  padding-top: 6 * $baseline;
+}

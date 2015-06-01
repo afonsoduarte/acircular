@@ -1,10 +1,8 @@
-<ul class="images">
-{% for image in page.images %}
-  <li class="image">
-    <img src="{{ resize_path(image.url, 1000, 800) }}" alt="{{ page.title }}" width="{# image.width #}" height="{# image.height #}" >
+{% for image in page.images|reverse %}
+  <div class="image">
+    <img src="{{ resize_path(image.url, 0, 650, 0, 100) }}" alt="{{ image.title }}" />
     {% if image.description %}
       <em>{{ image.description }}</em>
     {% endif %}
-  </li>
+  </div>
 {% endfor %}
-</ul>

@@ -1,20 +1,32 @@
 {% extends "base.html" %}
 
-{% block bodyclass %}project-page{% endblock %}
-
+{% block bodyclass %}project{% endblock %}
 
 {% block main %}
-<article id="{{ page.id }}" class="project">
-  <header>
-    <p class="category">{{ page.category }}</p>
-    <h1>{{ page.title }}</h1>
-  </header>
-  {% include 'partials/assets/media.html' %}
-  <div class="content">
-    {{ page.content }}
-    <div class="footnotes">
-      {{ page.footnotes }}
+  <article id="{{ page.id }}">
+    <header>
+      <h1>  
+        {{ page.title }}
+      </h1>
+    </header>
+
+    <div class="content">
+      {{ page.content }}
     </div>
-  </div>
-</article>
+
+    {% include 'partials/assets/media.html' %}
+
+  </article>
+
+{% endblock %}
+
+{% block footer %}
+  {% if page.siblings %}
+  <nav id="siblings">
+    <ul>
+      {% for prev in page.previous_sibling %}<li class="previous"><a href="{{ prev.url }}">{{ prev.title }}</a></li>{% endfor %}
+      {% for prev in page.next_sibling %}<li class="next"><a href="{{ prev.url }}">{{ prev.title }}</a></li>{% endfor %}
+    </ul>
+  </nav>
+  {% endif %}
 {% endblock %}
