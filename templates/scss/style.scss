@@ -13,6 +13,12 @@ $smallfontsize: 12px;
 $baseline: 22px;
 
 // GENERAL STYLES
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 body {
   padding: 0 $baseline/2;
@@ -32,6 +38,13 @@ p {
   margin: 0;
 }
 
+p + p,
+p + h1,
+p + h2,
+p + h3 {
+  margin-top: $baseline;
+}
+
 a {
   color: white;
 }
@@ -47,10 +60,20 @@ body, input, textarea {
 // NAVIGATION
 
 .page-header {
-  @include outer-container;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  @include media(1370px){
+    left: 0;
+  }
+
   > h1 {
     display: none;
   }
+}
+
+nav {
+  @include outer-container;
 }
 
 nav ul, 
@@ -61,10 +84,7 @@ nav ol {
 
 .navigation {
   @include span-columns(12 of 12);
-  position: fixed;
-  left: 0;
-  z-index: 999;
-  padding: $baseline $baseline/2;
+  padding: $baseline 0;
 
   background: black;
   // background: white;
@@ -262,6 +282,6 @@ section {
 
 
 #contact {
-  @include span-columns(12 of 12);
+  @include span-columns(4 of 12);
   padding-top: 6 * $baseline;
 }
