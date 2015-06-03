@@ -473,6 +473,10 @@ table {
   h2, h3 {
     page-break-after: avoid; } }
 
+.home #PPMiniCart form {
+  border-radius: 0;
+  background: white; }
+
 .page-header {
   position: fixed;
   z-index: 999;
@@ -575,6 +579,15 @@ body, input, textarea {
   font-family: 'Times New Roman', serif;
   line-height: 22px;
   font-size: 18px; }
+
+button, input[type=submit] {
+  border: 2px solid white;
+  font-size: .85em;
+  padding: .2em;
+  margin-top: .38em;
+  background: white;
+  color: black;
+  cursor: pointer; }
 
 .container {
   zoom: 1;
@@ -684,14 +697,6 @@ section.issues {
       color: white;
       display: block;
       margin: 14px 0 11px; }
-    .issue .shop form button {
-      border: 2px solid white;
-      font-size: .85em;
-      padding: .2em;
-      margin-top: .38em;
-      background: white;
-      color: black;
-      cursor: pointer; }
   .issue .media {
     margin-top: 66px; }
     @media screen and (min-width: 680px) {
@@ -753,84 +758,6 @@ section.issues {
   50% {
     -webkit-transform: rotateX(0deg) rotateY(180deg);
     transform: rotateX(0deg) rotateY(180deg); } }
-
-@-webkit-keyframes acircular2 {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(0deg) rotateY(-360deg);
-    transform: rotateX(0deg) rotateY(-360deg); }
-
-  50% {
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
-    transform: rotateX(0deg) rotateY(-180deg); } }
-
-@-ms-keyframes acircular2 {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(0deg) rotateY(-360deg);
-    transform: rotateX(0deg) rotateY(-360deg); }
-
-  50% {
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
-    transform: rotateX(0deg) rotateY(-180deg); } }
-
-@keyframes acircular2 {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(0deg) rotateY(-360deg);
-    transform: rotateX(0deg) rotateY(-360deg); }
-
-  50% {
-    -webkit-transform: rotateX(0deg) rotateY(-180deg);
-    transform: rotateX(0deg) rotateY(-180deg); } }
-
-@-webkit-keyframes acircular {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(360deg) rotateY(0deg);
-    transform: rotateX(360deg) rotateY(0deg); }
-
-  50% {
-    -webkit-transform: rotateX(180deg) rotateY(0deg);
-    transform: rotateX(180deg) rotateY(0deg); } }
-
-@-ms-keyframes acircular {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(360deg) rotateY(0deg);
-    transform: rotateX(360deg) rotateY(0deg); }
-
-  50% {
-    -webkit-transform: rotateX(180deg) rotateY(0deg);
-    transform: rotateX(180deg) rotateY(0deg); } }
-
-@keyframes acircular {
-  from {
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    transform: rotateX(0deg) rotateY(0deg); }
-
-  to {
-    -webkit-transform: rotateX(360deg) rotateY(0deg);
-    transform: rotateX(360deg) rotateY(0deg); }
-
-  50% {
-    -webkit-transform: rotateX(180deg) rotateY(0deg);
-    transform: rotateX(180deg) rotateY(0deg); } }
 
 .csstransforms3d .issue {
   -webkit-perspective: 2000px;
@@ -980,6 +907,10 @@ section {
   padding-top: 132px; }
   #contact:last-child {
     margin-right: 0; }
+  #contact form {
+    margin-top: 22px; }
+  #contact input {
+    display: block; }
 
 
 /*# sourceMappingURL=maps/style.css.map */

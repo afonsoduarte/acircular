@@ -13,14 +13,14 @@ gulp.task('styles', function () {
             .pipe($.autoprefixer('last 2 versions'))
         .pipe($.sourcemaps.write('./maps'))
         .pipe(gulp.dest('css'))
-        .pipe(browserSync.stream())
+        //.pipe(browserSync.stream())
         .pipe($.size())
         .pipe($.notify("Compilation complete."));
 });
 
 gulp.task('scripts', function () {
     return gulp.src('js/**/*.js')
-        .pipe(reload({stream:true}))
+        .pipe(browserSync.stream())
         .pipe($.size());
 });
 
@@ -31,16 +31,17 @@ gulp.task('default', function () {
 });
 
 // User browserSync to serve site 
-gulp.task('serve', ['styles'], function () {
-    browserSync.init({
-        proxy: "acircular.dev"
+gulp.task('serve', function () {
+    browserSync.init(null, {
+        proxy: "acircular.dev",
+        open: false
     });
 });
 
 gulp.task('watch', ['serve'], function () {
  
     // watch for changes
-    gulp.watch('**/*.html').on('change', browserSync.reload);
+    //gulp.watch('**/*.html').on('change', browserSync.reload);
     gulp.watch('scss/**/*.scss', ['styles']);
-    gulp.watch('js/**/*.js', ['scripts']);
+    //gulp.watch('js/**/*.js', ['scripts']);
 });

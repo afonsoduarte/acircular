@@ -5,7 +5,9 @@
 @import "boilerplate";
 @import "utils";
 
-@import "components/header";
+@import 
+  "components/basket",
+  "components/header";
 
 
 
@@ -55,7 +57,16 @@ body, input, textarea {
   font-size: $fontsize;
 }
 
-
+button,
+input[type=submit] {
+  border: 2px solid white;
+  font-size: .85em;
+  padding: .2em;
+  margin-top: .38em;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
 
 
 // CONTENT
@@ -144,16 +155,6 @@ section.issues {
         display: block;
         margin: ($baseline/2 + 3px) 0 $baseline/2;
       }
-
-      button {
-        border: 2px solid white;
-        font-size: .85em;
-        padding: .2em;
-        margin-top: .38em;
-        background: white;
-        color: black;
-        cursor: pointer;
-      }
     }
   }
 
@@ -190,30 +191,6 @@ section.issues {
   }  
   50% {
     @include transform( rotateX(0deg) rotateY(180deg) );
-  }
-}
-
-@include keyframes(acircular2) {
-  from {
-    @include transform( rotateX(0deg) rotateY(0deg) );
-  }
-  to {
-    @include transform( rotateX(0deg) rotateY(-360deg) );
-  }  
-  50% {
-    @include transform( rotateX(0deg) rotateY(-180deg) );
-  }
-}
-
-@include keyframes(acircular) {
-  from {
-    @include transform( rotateX(0deg) rotateY(0deg) );
-  }
-  to {
-    @include transform( rotateX(360deg) rotateY(0deg) );
-  }  
-  50% {
-    @include transform( rotateX(180deg) rotateY(0deg) );
   }
 }
 
@@ -274,7 +251,6 @@ section.issues {
 }
 
 .csstransforms3d {
-
   .issue {
     perspective: 2000px;
     perspective-origin: 50% 50%;
@@ -305,4 +281,12 @@ section {
 #contact {
   @include span-columns(12);
   padding-top: 6 * $baseline;
+
+  form {
+    margin-top: $baseline;
+  }
+
+  input {
+    display: block;
+  }
 }
