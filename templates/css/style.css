@@ -553,7 +553,8 @@ html {
 body {
   padding: 0 11px;
   background: black;
-  color: white; }
+  color: white;
+  min-width: 520px; }
 
 h1, h2, h3, p {
   font-size: 18px;
