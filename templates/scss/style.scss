@@ -233,19 +233,23 @@ section.issues {
       background: #FEFFEF;
     }
 
+    // Back side
     & div:nth-child(1) {
       @include transform (translateZ($z/2));
     }
 
+    // Left side (spine)
     & div:nth-child(2) {
       @include transform (rotateY(-90deg) translateZ($z/2));
       width: $z;
     }
 
+    // Front side
     & div:nth-child(3) {
       @include transform (rotateY(180deg) translateZ($z/2));
     }
 
+    // Right side
     & div:nth-child(4){
       @include transform (rotateY(-90deg) translateZ(- $x + ($z/2)));
       width: $z;

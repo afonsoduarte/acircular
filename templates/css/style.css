@@ -530,9 +530,9 @@ nav ul, nav ol {
 
 li.has-children li {
   float: left;
-  width: 2.75em; }
+  width: 2.5em; }
   li.has-children li a {
-    padding: 0 1.5em 0 0; }
+    padding: 0 1.2em 0 0; }
 li.has-children > a {
   display: none; }
 
