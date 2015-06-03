@@ -17,10 +17,14 @@
       {% if child.slug == "issues" %}
       {% for child in child.children|reverse %}
         <article id="{{ child.slug }}" class="issue">
-          <h2>{{ child.title }}</h2>
-          <div class="content">{{ child.content }}</div>
+          <div class="content">
+            <h2 class="issue__title">{{ child.title }}</h2>
+            {{ child.content }}
+          </div>
           <div class="spec">{{ child.spec }}</div>
-          <div class="shop">{{ child.shop }}</div>
+          <div class="shop">
+            {% include 'partials/issue/shop.html' %}
+          </div>
 
           {% include 'partials/assets/media.html' with { 'page' : child } %}
 

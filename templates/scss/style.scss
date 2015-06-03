@@ -5,12 +5,9 @@
 @import "boilerplate";
 @import "utils";
 
-// VARIABLES
+@import "components/header";
 
-$fontsize: 18px;
-$bigfontsize: 26px;
-$smallfontsize: 12px;
-$baseline: 22px;
+
 
 // GENERAL STYLES
 html {
@@ -22,7 +19,8 @@ html {
 
 body {
   padding: 0 $baseline/2;
-  // min-width: 1190px;
+  background: black;
+  color: white;
 }
 
 h1,
@@ -36,6 +34,7 @@ p {
 
 p {
   margin: 0;
+  max-width: 26em;
 }
 
 p + p,
@@ -53,55 +52,9 @@ body, input, textarea {
   font-family: $body-font-family;
   line-height: $baseline;
   font-size: $fontsize;
-  background: black;
-  color: white;
 }
 
-// NAVIGATION
 
-.page-header {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  @include media(1370px){
-    left: 0;
-  }
-
-  > h1 {
-    display: none;
-  }
-}
-
-nav {
-  @include outer-container;
-}
-
-nav ul, 
-nav ol {
-  padding: 0;
-  margin: 0;
-}
-
-.navigation {
-  @include span-columns(12 of 12);
-  padding: $baseline 0;
-
-  background: black;
-  // background: white;
-  // a {
-  //   color: black;
-  // }
-
-  > li {
-    @include span-columns(4 of 12);
-  }
-}
-
-.has-children {
-  > a {
-    display: none;
-  }
-}
 
 
 // CONTENT
@@ -110,10 +63,15 @@ nav ol {
   @include outer-container;
 }
 
+.thankyou .container {
+  padding-top: $baseline * 6;
+}
+
 
 // ISSUES
 section.issues {
-  @include span-columns(12 of 12);
+  @include span-columns(12);
+  @include omega();
 
   & > h1 {
     display: none;
@@ -122,13 +80,15 @@ section.issues {
 
 .issue {
   @include clearfix;
-  padding-top: 6 * $baseline;
+  padding-top: $baseline * 6;
+  margin-bottom: $baseline * 6;
 
-  & > h1 {
-    margin-bottom: $baseline * 2;
+  .issue__title {
+    margin-bottom: $baseline;
   }
 
   ul {
+    margin: 0;
     padding: 0;
     list-style: none;
     li {
@@ -142,69 +102,89 @@ section.issues {
   }
 
   .content {
-    @include span-columns(3 of 9);
+    @include media($small) {
+      @include span-columns(6);
+    }
+  }
+
+  .spec {
+    @include media($small) {
+      @include span-columns(6);
+      @include omega();
+    }
+    @include media($medium) {
+      @include span-columns(3);
+    }
+    margin-bottom: $baseline;
+  }
+
+  .shop {
+    @include media($small) {
+      @include span-columns(6);
+      @include omega();
+    }
+    @include media($medium) {
+      @include span-columns(3);
+      @include omega();
+    }
+
+    form {
+      margin-bottom: .2em;
+
+      select {
+        border: 2px solid white;
+        font-size: .9em;
+        font-family: $body-font-family;
+        background: black;
+        color: white;
+        display: block;
+        margin: ($baseline/2 + 3px) 0 $baseline/2;
+      }
+
+      input {
+        border: 2px solid white;
+        font-size: 1em;
+        background: black;
+        padding: .2em;
+        margin-top: .38em;
+        color: white;
+      }
+
+      input:hover {
+        background: white;
+        color: black;
+        cursor: pointer;
+      }
+    }
   }
 
   .media {
-    @include span-columns(6 of 9);
     margin-top: $baseline * 3;
+
+    @include media($small) {
+      @include span-columns(12);
+      @include omega();
+    }
+    @include media($medium) {
+      @include span-columns(6);
+      @include omega();
+    }
+
 
     img {
       max-width: 100%;
     }
   }
 
-  .spec {
-    @include span-columns(3 of 9);
-  }
 
-  .shop {
-    @include span-columns(3 of 9);
-    @include omega();
-
-    form
-    {
-      margin-bottom: .2em;
-    }
-
-    select
-    {
-      border: 2px solid white;
-      font-size: .9em;
-      font-family: $body-font-family;
-      background: black;
-      color: white;
-      display: block;
-      margin: ($baseline/2 + 3px) 0 $baseline/2;
-    }
-
-    input
-    {
-      border: 2px solid white;
-      font-size: 1em;
-      background: black;
-      padding: .2em;
-      margin-top: .38em;
-      color: white;
-    }
-
-    input:hover
-    {
-      background: white;
-      color: black;
-      cursor: pointer;
-    }
-  }
 }
 
 // ISSUE 3
 // ROTATING CUBE
 
-$x: 433px;
-$y: 650px;
-$z: 35px;
 
-@include keyframes(circular) {
+
+@include keyframes(acircular3) {
   from {
     @include transform( rotateX(0deg) rotateY(0deg) );
   }
@@ -216,59 +196,99 @@ $z: 35px;
   }
 }
 
+@include keyframes(acircular2) {
+  from {
+    @include transform( rotateX(0deg) rotateY(0deg) );
+  }
+  to {
+    @include transform( rotateX(0deg) rotateY(-360deg) );
+  }  
+  50% {
+    @include transform( rotateX(0deg) rotateY(-180deg) );
+  }
+}
+
+@include keyframes(acircular) {
+  from {
+    @include transform( rotateX(0deg) rotateY(0deg) );
+  }
+  to {
+    @include transform( rotateX(360deg) rotateY(0deg) );
+  }  
+  50% {
+    @include transform( rotateX(180deg) rotateY(0deg) );
+  }
+}
+
+@mixin issueCube($x, $y, $z, $animation-name) {
+  .media {
+    animation: $animation-name 10s infinite linear;
+    width: $x;
+    height: $y;
+    position: relative;
+    @include transition(transform 2s linear);
+    transform-style: preserve-3d;
+
+    &>div {
+      position: absolute;
+      height: $y;
+      width: $x;
+      padding: 0px;
+      background: #FEFFEF;
+    }
+
+    & div:nth-child(1) {
+      @include transform (translateZ($z/2));
+    }
+
+    & div:nth-child(2) {
+      @include transform (rotateY(-90deg) translateZ($z/2));
+      width: $z;
+    }
+
+    & div:nth-child(3) {
+      @include transform (rotateY(180deg) translateZ($z/2));
+    }
+
+    & div:nth-child(4){
+      @include transform (rotateY(-90deg) translateZ(- $x + ($z/2)));
+      width: $z;
+      background: url(/public/pages.png) repeat top left;
+    }
+
+    // Bottom side
+    & div:nth-child(5) {
+      @include transform (rotateX(-90deg) translateZ($y - ($z/2)) rotate(180deg));
+      height: $z;
+      background: repeating-linear-gradient(to top, #888 4px, rgb(230,230,205) 8px);
+    }
+
+    // Top side
+    & div:nth-child(6) {
+      @include transform (rotateX(90deg) translateZ($z/2));
+      height: $z;
+      background: repeating-linear-gradient(to top, #888 4px, rgb(230,230,195) 8px);
+    }
+  }
+}
+
 .csstransforms3d {
 
+  .issue {
+    perspective: 2000px;
+    perspective-origin: 50% 50%;
+  }
+
   #a-circular-3 {
-    perspective         : 2000px;
-    perspective-origin          : 50% 50%;
+    @include issueCube(400px, 600px, 32px, acircular3);
+  }
 
-    .media {
-      animation         : circular 10s infinite linear;
-      width: $x;
-      position: relative;
-      @include transition(transform 2s linear);
-      transform-style         : preserve-3d;
+  #a-circular-2 {
+    @include issueCube(514px, 650px, 20px, acircular3);
+  }
 
-      &>div {
-        position: absolute;
-        height: $y;
-        width: $x;
-        padding: 0px;
-        background: #FEFFEF;
-      }
-
-
-      & div:nth-child(1) {
-        @include transform (translateZ($z/2));
-      }
-
-      & div:nth-child(2) {
-        @include transform (rotateY(-90deg) translateZ($z/2));
-        width: $z;
-      }
-
-      & div:nth-child(3) {
-        @include transform (rotateY(180deg) translateZ($z/2));
-      }
-
-      & div:nth-child(4){
-        @include transform (rotateY(-90deg) translateZ(- $x + ($z/2)));
-        width: $z;
-        background: url(/public/pages.png) repeat top left;
-      }
-
-      & div:nth-child(5) {
-        @include transform (rotateX(-90deg) translateZ($y - ($z/2)) rotate(180deg));
-        height: $z;
-        background: url(/public/pages.png) repeat top left;
-      }
-
-      & div:nth-child(6) {
-        @include transform (rotateX(90deg) translateZ($z/2));
-        height: $z;
-        background: url(/public/pages.png) repeat top left;
-      }
-    }
+  #a-circular {
+    @include issueCube(400px, 567px, 27px, acircular3);
   }
 }
 
@@ -282,6 +302,6 @@ section {
 
 
 #contact {
-  @include span-columns(4 of 12);
+  @include span-columns(12);
   padding-top: 6 * $baseline;
 }

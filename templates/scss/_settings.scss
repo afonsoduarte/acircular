@@ -8,3 +8,16 @@ $grid-columns: 12 !default;
 $max-width: golden-ratio(1em, 9) !default;
 $border-box-sizing: true !default; // Makes all elements have border-box layout
 $default-feature: min-width;
+
+// Breakpoints
+$small: 680px;
+$medium: 960px;
+$large: 1100px;
+$x-large: 1370px;
+
+
+// VARIABLES
+$fontsize: 18px;
+$bigfontsize: 26px;
+$smallfontsize: 12px;
+$baseline: 22px;

@@ -1,16 +1,22 @@
 /* script */
 
-$(function() {
+// PAY PAL
+paypal.minicart.render();
 
-  // $("#news")
-  //   .append("<div><a class='see-more' href='#'>2011</a></div>")
-  //   .find("article:not(:first)")
-  //     .addClass('hidden');
-
-  // $(".see-more")
-  //     .click(function(e){
-  //       $("#news article.hidden").removeClass('hidden');
-  //       e.preventDefault();
-  //     });
-
+// Show basket 
+$('.view-cart-btn').click( function(){
+  paypal.minicart.view.show();
 });
+
+// Upate count on add and rmeove
+paypal.minicart.cart.on('add', updateCartCount);
+paypal.minicart.cart.on('remove', updateCartCount);
+
+// Show basket count on load
+updateCartCount();
+
+function updateCartCount() {
+  var items = paypal.minicart.cart.items(),
+      cartCount = (items.length > 0)? "("+ items.length +")" : "";
+  $('.cart-count').text(cartCount);
+}

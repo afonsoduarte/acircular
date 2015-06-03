@@ -2,7 +2,13 @@
   <ol class="children">
     {% for child in page.children|reverse %}
       <li>
-        <a href="#{{ child.slug }}">{{ child.page_name }}</a>
+        <a href="/#{{ child.slug }}">
+          {% if child.issue %}
+            {{ child.issue }}
+          {% else %}
+            {{ child.title }}
+          {% endif %}
+        </a>
         {% include 'partials/navigation/children.html' with { 'page' : child } %}
       </li>
     {% endfor %}

@@ -1,8 +1,15 @@
 <ul class="navigation">
-  {% for child in page.root %}
-    <li class="{{ child.slug }}{% if child.is_current %} active{% endif %}{% if child.children %} has-children{% endif %}">
-      <a href="#{{ child.slug }}">{{ child.title }}</a>
-      {% include 'partials/navigation/children.html' with { 'page' : child } %}
-    </li>
-  {% endfor %}
+{% for child in page.root %}
+  <li class="{{ child.slug }}{% if child.is_current %} active{% endif %}{% if child.children %} has-children{% endif %}">
+    <a href="#{{ child.slug }}">
+      {{ child.title }}
+    </a>
+    {% include 'partials/navigation/children.html' with { 'page' : child } %}
+  </li>
+{% endfor %}
+  <li class="cart">
+    <button class="view-cart-btn">
+      Basket <span class="cart-count"></span>
+    </button>
+  </li>
 </ul>

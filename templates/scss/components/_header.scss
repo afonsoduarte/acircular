@@ -1,0 +1,62 @@
+// NAVIGATION
+
+.page-header {
+  font-family: Arial;
+  position: fixed;
+  z-index: 999;
+  background: black;
+  box-shadow: 0 10px 10px black;
+
+  // Subtract body padding from full width
+  width: calc(100% - 22px);
+  @include media($x-large){
+    left: 0;
+  }
+
+  > h1 {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+nav {
+  @include outer-container;
+}
+
+nav ul, 
+nav ol {
+  padding: 0;
+  margin: 0;
+}
+
+.navigation {
+  padding: $baseline 0;
+
+  li {
+    @include span-columns(4);
+    @include media($small) {
+      @include span-columns(2);
+    }
+  }
+}
+
+li.has-children {
+  li {
+    float: left;
+    width: 1em;
+  }
+
+  > a {
+    display: none;
+  }
+}
+
+.view-cart-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0;
+}
