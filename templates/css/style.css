@@ -474,24 +474,22 @@ table {
     page-break-after: avoid; } }
 
 .page-header {
-  font-family: Arial;
   position: fixed;
   z-index: 999;
   background: black;
   box-shadow: 0 10px 10px black;
   width: -webkit-calc(100% - 22px);
   width: calc(100% - 22px); }
-  @media screen and (min-width: 1370px) {
-    .page-header {
-      left: 0; } }
   .page-header > h1 {
     display: none; }
-  .page-header a {
-    text-decoration: none; }
+  .page-header a, .page-header button {
+    text-decoration: none;
+    font-family: Arial;
+    font-size: .85em; }
 
 nav {
   zoom: 1;
-  max-width: 75.99879em;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto; }
   nav:before, nav:after {
@@ -518,13 +516,23 @@ nav ul, nav ol {
         display: block;
         float: left;
         margin-right: 2.35765%;
-        width: 14.70196%; }
+        width: 23.23176%; }
+        .navigation li:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 960px) {
+      .navigation li {
+        display: block;
+        float: left;
+        margin-right: 2.35765%;
+        width: 16.83441%; }
         .navigation li:last-child {
           margin-right: 0; } }
 
 li.has-children li {
   float: left;
-  width: 1em; }
+  width: 2.75em; }
+  li.has-children li a {
+    padding: 0 1.5em 0 0; }
 li.has-children > a {
   display: none; }
 
@@ -569,7 +577,7 @@ body, input, textarea {
 
 .container {
   zoom: 1;
-  max-width: 75.99879em;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto; }
   .container:before, .container:after {
@@ -594,7 +602,7 @@ section.issues {
 
 .issue {
   zoom: 1;
-  padding-top: 132px;
+  padding-top: 88px;
   margin-bottom: 132px; }
   .issue:before, .issue:after {
     content: " ";
@@ -636,7 +644,7 @@ section.issues {
         display: block;
         float: left;
         margin-right: 2.35765%;
-        width: 23.23176%; }
+        width: 31.76157%; }
         .issue .spec:last-child {
           margin-right: 0; } }
   @media screen and (min-width: 680px) {
@@ -653,7 +661,7 @@ section.issues {
       display: block;
       float: left;
       margin-right: 2.35765%;
-      width: 23.23176%;
+      width: 14.70196%;
       margin-right: 0; }
       .issue .shop:last-child {
         margin-right: 0; } }
@@ -667,14 +675,11 @@ section.issues {
       color: white;
       display: block;
       margin: 14px 0 11px; }
-    .issue .shop form input {
+    .issue .shop form button {
       border: 2px solid white;
-      font-size: 1em;
-      background: black;
+      font-size: .85em;
       padding: .2em;
       margin-top: .38em;
-      color: white; }
-    .issue .shop form input:hover {
       background: white;
       color: black;
       cursor: pointer; }

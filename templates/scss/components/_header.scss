@@ -1,7 +1,6 @@
 // NAVIGATION
 
 .page-header {
-  font-family: Arial;
   position: fixed;
   z-index: 999;
   background: black;
@@ -9,16 +8,15 @@
 
   // Subtract body padding from full width
   width: calc(100% - 22px);
-  @include media($x-large){
-    left: 0;
-  }
 
   > h1 {
     display: none;
   }
 
-  a {
+  a, button {
     text-decoration: none;
+    font-family: Arial;
+    font-size: .85em;
   }
 }
 
@@ -38,7 +36,10 @@ nav ol {
   li {
     @include span-columns(4);
     @include media($small) {
-      @include span-columns(2);
+      @include span-columns(3);
+    }
+    @include media($medium) {
+      @include span-columns(2.25);
     }
   }
 }
@@ -46,7 +47,11 @@ nav ol {
 li.has-children {
   li {
     float: left;
-    width: 1em;
+    width: 2.75em;
+
+    a {
+      padding: 0 1.5em 0 0;
+    }
   }
 
   > a {

@@ -80,7 +80,7 @@ section.issues {
 
 .issue {
   @include clearfix;
-  padding-top: $baseline * 6;
+  padding-top: $baseline * 4;
   margin-bottom: $baseline * 6;
 
   .issue__title {
@@ -113,7 +113,7 @@ section.issues {
       @include omega();
     }
     @include media($medium) {
-      @include span-columns(3);
+      @include span-columns(4);
     }
     margin-bottom: $baseline;
   }
@@ -124,7 +124,7 @@ section.issues {
       @include omega();
     }
     @include media($medium) {
-      @include span-columns(3);
+      @include span-columns(2);
       @include omega();
     }
 
@@ -141,16 +141,11 @@ section.issues {
         margin: ($baseline/2 + 3px) 0 $baseline/2;
       }
 
-      input {
+      button {
         border: 2px solid white;
-        font-size: 1em;
-        background: black;
+        font-size: .85em;
         padding: .2em;
         margin-top: .38em;
-        color: white;
-      }
-
-      input:hover {
         background: white;
         color: black;
         cursor: pointer;
@@ -181,8 +176,6 @@ section.issues {
 
 // ISSUE 3
 // ROTATING CUBE
-
-
 
 @include keyframes(acircular3) {
   from {
