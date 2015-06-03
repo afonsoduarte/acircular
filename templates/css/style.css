@@ -628,6 +628,14 @@ section.issues {
       width: 48.82117%; }
       .issue .content:last-child {
         margin-right: 0; } }
+  @media screen and (min-width: 960px) {
+    .issue .content {
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 40.29137%; }
+      .issue .content:last-child {
+        margin-right: 0; } }
   .issue .spec {
     margin-bottom: 22px; }
     @media screen and (min-width: 680px) {
@@ -644,7 +652,7 @@ section.issues {
         display: block;
         float: left;
         margin-right: 2.35765%;
-        width: 31.76157%; }
+        width: 40.29137%; }
         .issue .spec:last-child {
           margin-right: 0; } }
   @media screen and (min-width: 680px) {

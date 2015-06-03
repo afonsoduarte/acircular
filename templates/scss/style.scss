@@ -105,6 +105,9 @@ section.issues {
     @include media($small) {
       @include span-columns(6);
     }
+    @include media($medium) {
+      @include span-columns(5);
+    }
   }
 
   .spec {
@@ -113,7 +116,7 @@ section.issues {
       @include omega();
     }
     @include media($medium) {
-      @include span-columns(4);
+      @include span-columns(5);
     }
     margin-bottom: $baseline;
   }
